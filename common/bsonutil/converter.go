@@ -192,7 +192,7 @@ func ConvertBSONValueToLegacyExtJSON(x interface{}) (interface{}, error) {
 		return json.NumberInt(v), nil
 
 	case primitive.ObjectID: // ObjectId
-		return v.Hex(), nil
+		return json.ObjectId(v.Hex()), nil
 
 	case primitive.Decimal128:
 		return json.Decimal128{v}, nil
