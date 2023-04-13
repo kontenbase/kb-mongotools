@@ -9,7 +9,6 @@ package mongoimport
 import (
 	"encoding/base32"
 	"encoding/base64"
-	"encoding/binary"
 	"encoding/hex"
 	"fmt"
 	"log"
@@ -42,6 +41,7 @@ const (
 	ctString
 	ctID
 	ctJsonID
+	ctIdOrString
 )
 
 var (
@@ -61,6 +61,7 @@ var (
 		"string":      ctString,
 		"id":          ctID,
 		"jsonId":      ctJsonID,
+		"idOrString":  ctIdOrString,
 	}
 )
 
@@ -203,6 +204,8 @@ func NewFieldParser(t columnType, arg string) (parser FieldParser, err error) {
 		parser = new(FieldJsonIDParser)
 	case ctString:
 		parser = new(FieldStringParser)
+	case ctIdOrString:
+		parser = new(FieldIdOrStringParser)
 	default: // ctAuto
 		parser = new(FieldAutoParser)
 	}
@@ -307,27 +310,15 @@ func (sp *FieldStringParser) Parse(in string) (interface{}, error) {
 type FieldIDParser struct{}
 
 func (sp *FieldIDParser) Parse(in string) (interface{}, error) {
-	if len(in) == 24 {
-		return primitive.ObjectIDFromHex(in)
-	}
-
-	if id, err := strconv.Atoi(in); err == nil {
-		var b primitive.ObjectID
-		binary.LittleEndian.PutUint32(b[0:4], 00000)
-		binary.LittleEndian.PutUint32(b[4:12], uint32(id))
-		return b, nil
-	}
-
 	if len(in) > 24 {
 		return nil, fmt.Errorf("FieldIDParser: id too long")
 	}
 
-	b := hex.EncodeToString([]byte(in))
+	if len(in) == 24 && primitive.IsValidObjectID(in) {
+		return primitive.ObjectIDFromHex(in)
+	}
 
-	var oid primitive.ObjectID
-	copy(oid[:], b)
-
-	return oid, nil
+	return nil, nil
 }
 
 type FieldJsonIDParser struct{}
@@ -340,25 +331,34 @@ func (jip *FieldJsonIDParser) Parse(in string) (interface{}, error) {
 		in = result[1]
 	}
 
-	if len(in) == 24 {
-		return primitive.ObjectIDFromHex(in)
-	}
-
-	if id, err := strconv.Atoi(in); err == nil {
-		var b primitive.ObjectID
-		binary.LittleEndian.PutUint32(b[0:4], 00000)
-		binary.LittleEndian.PutUint32(b[4:12], uint32(id))
-		return b, nil
-	}
-
 	if len(in) > 24 {
 		return nil, fmt.Errorf("FieldIDParser: id too long")
 	}
 
-	b := hex.EncodeToString([]byte(in))
+	if len(in) == 24 && primitive.IsValidObjectID(in) {
+		return primitive.ObjectIDFromHex(in)
+	}
 
-	var oid primitive.ObjectID
-	copy(oid[:], b)
+	return nil, nil
+}
 
-	return oid, nil
+type FieldIdOrStringParser struct{}
+
+func (fip *FieldIdOrStringParser) Parse(in string) (interface{}, error) {
+	re := regexp.MustCompile(`ObjectId\((.*?)\)`)
+	result := re.FindStringSubmatch(in)
+
+	if len(result) > 1 {
+		in = result[1]
+	}
+
+	if len(in) == 24 && primitive.IsValidObjectID(in) {
+		return primitive.ObjectIDFromHex(in)
+	}
+
+	if in == "" {
+		return nil, nil
+	}
+
+	return fmt.Sprint(in), nil
 }
