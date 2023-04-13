@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/bsonutil"
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/bsonutil"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 	. "github.com/smartystreets/goconvey/convey"
 	"go.mongodb.org/mongo-driver/bson"
 )

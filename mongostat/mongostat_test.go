@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
-	"github.com/kontenbase/mongo-tools/mongostat/status"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/kb-mongotools/mongostat/status"
 	. "github.com/smartystreets/goconvey/convey"
 	"go.mongodb.org/mongo-driver/bson"
 )

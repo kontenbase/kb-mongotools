@@ -12,7 +12,7 @@ package failpoint
 import (
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 	c "github.com/smartystreets/goconvey/convey"
 )
 

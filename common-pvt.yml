@@ -22,7 +22,7 @@ functions:
     command: shell.exec
     type: test
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       script: |
         set -x
         set -v
@@ -52,7 +52,7 @@ functions:
       bucket: mciuploads
       aws_key: ${aws_key}
       aws_secret: ${aws_secret}
-      local_file: src/github.com/kontenbase/mongo-tools/bin/${tool}${extension}
+      local_file: src/github.com/kontenbase/kb-mongotools/bin/${tool}${extension}
       remote_file: mongo-tools/binaries/${build_id}/${edition|community}/${tool}${extension}
 
   "upload tool":
@@ -60,7 +60,7 @@ functions:
     params:
       aws_key: ${aws_key}
       aws_secret: ${aws_secret}
-      local_file: src/github.com/kontenbase/mongo-tools/bin/${tool}
+      local_file: src/github.com/kontenbase/kb-mongotools/bin/${tool}
       remote_file: mongo-tools/binaries/${build_id}/${edition|community}/${tool}${extension}
       bucket: mciuploads
       permissions: public-read
@@ -77,13 +77,13 @@ functions:
           mkdir -p src/github.com/mongodb
     - command: git.get_project
       params:
-        directory: src/github.com/kontenbase/mongo-tools
+        directory: src/github.com/kontenbase/kb-mongotools
     - command: git.apply_patch
       params:
-        directory: src/github.com/kontenbase/mongo-tools
+        directory: src/github.com/kontenbase/kb-mongotools
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           set -x
           set -v
@@ -94,7 +94,7 @@ functions:
     - command: shell.exec
       type: test
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           set -x
           set -v

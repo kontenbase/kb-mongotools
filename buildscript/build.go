@@ -12,8 +12,8 @@ import (
 	"github.com/craiggwilson/goke/pkg/git"
 	"github.com/craiggwilson/goke/pkg/sh"
 	"github.com/craiggwilson/goke/task"
-	"github.com/kontenbase/mongo-tools/common/testtype"
-	"github.com/kontenbase/mongo-tools/release/platform"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/release/platform"
 )
 
 // pkgNames is a list of the names of all the packages to test or build.

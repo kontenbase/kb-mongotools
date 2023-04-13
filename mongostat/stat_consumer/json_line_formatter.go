@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer/line"
 )
 
 // JSONLineFormatter converts the StatLines to JSON

@@ -11,9 +11,9 @@ import (
 	"io"
 	"os"
 
-	"github.com/kontenbase/mongo-tools/common/util"
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
-	"github.com/kontenbase/mongo-tools/mongostat/status"
+	"github.com/kontenbase/kb-mongotools/common/util"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/kb-mongotools/mongostat/status"
 )
 
 // StatConsumer maintains the current set of headers and the most recent

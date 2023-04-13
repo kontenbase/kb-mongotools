@@ -13,10 +13,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/kontenbase/mongo-tools/common/intents"
-	commonOpts "github.com/kontenbase/mongo-tools/common/options"
-	"github.com/kontenbase/mongo-tools/common/testtype"
-	"github.com/kontenbase/mongo-tools/common/testutil"
+	"github.com/kontenbase/kb-mongotools/common/intents"
+	commonOpts "github.com/kontenbase/kb-mongotools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testutil"
 	. "github.com/smartystreets/goconvey/convey"
 	"go.mongodb.org/mongo-driver/bson"
 )

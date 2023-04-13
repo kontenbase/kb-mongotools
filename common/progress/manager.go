@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/text"
+	"github.com/kontenbase/kb-mongotools/common/text"
 )
 
 // Manager is an interface which tools can use to registers progressors which

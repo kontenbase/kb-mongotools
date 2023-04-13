@@ -17,7 +17,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 )
 
 // Test values for the stream test.

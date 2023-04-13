@@ -12,8 +12,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/kontenbase/mongo-tools/common/text"
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/kb-mongotools/common/text"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer/line"
 )
 
 // GridLineFormatter uses a text.GridWriter to format the StatLines as a grid

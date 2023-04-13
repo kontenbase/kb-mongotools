@@ -17,8 +17,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
-	"github.com/kontenbase/mongo-tools/common/testutil"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testutil"
 	"github.com/stretchr/testify/require"
 	"go.mongodb.org/mongo-driver/bson"
 )

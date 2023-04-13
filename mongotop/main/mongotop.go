@@ -11,11 +11,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/db"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/signals"
-	"github.com/kontenbase/mongo-tools/common/util"
-	"github.com/kontenbase/mongo-tools/mongotop"
+	"github.com/kontenbase/kb-mongotools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/signals"
+	"github.com/kontenbase/kb-mongotools/common/util"
+	"github.com/kontenbase/kb-mongotools/mongotop"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 

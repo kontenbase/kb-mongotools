@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/kontenbase/mongo-tools/common/db"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/util"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

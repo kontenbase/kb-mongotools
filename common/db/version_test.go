@@ -3,7 +3,7 @@ package db
 import (
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 )
 
 func TestVersionCmp(t *testing.T) {

@@ -9,7 +9,7 @@ package bsonutil
 import (
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
 	. "github.com/smartystreets/goconvey/convey"

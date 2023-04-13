@@ -7,9 +7,9 @@
 package db
 
 import (
-	"github.com/kontenbase/mongo-tools/common/json"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/common/json"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/util"
 	"go.mongodb.org/mongo-driver/mongo/writeconcern"
 	"go.mongodb.org/mongo-driver/x/mongo/driver/connstring"
 

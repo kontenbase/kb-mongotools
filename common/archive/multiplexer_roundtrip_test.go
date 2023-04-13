@@ -15,9 +15,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/db"
-	"github.com/kontenbase/mongo-tools/common/intents"
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/intents"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 	. "github.com/smartystreets/goconvey/convey"
 	"go.mongodb.org/mongo-driver/bson"
 )

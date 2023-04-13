@@ -16,7 +16,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 )
 
 // Tests of simple examples.

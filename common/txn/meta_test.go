@@ -9,7 +9,7 @@ package txn
 import (
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 )
 
 func TestTxnMeta(t *testing.T) {

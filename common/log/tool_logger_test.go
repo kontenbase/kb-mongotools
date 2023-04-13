@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 	. "github.com/smartystreets/goconvey/convey"
 )
 

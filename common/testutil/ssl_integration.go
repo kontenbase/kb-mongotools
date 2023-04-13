@@ -10,8 +10,8 @@ import (
 	"runtime"
 	"strings"
 
-	commonOpts "github.com/kontenbase/mongo-tools/common/options"
-	"github.com/kontenbase/mongo-tools/common/testtype"
+	commonOpts "github.com/kontenbase/kb-mongotools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
 )
 
 func GetSSLArgs() []string {

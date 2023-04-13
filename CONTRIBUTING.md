@@ -14,7 +14,7 @@ Getting Started
 
 1. Create a [MongoDB JIRA account](https://jira.mongodb.org/secure/Signup!default.jspa).
 2. Create a [Github account](https://github.com/signup/free).
-3. [Fork](https://help.github.com/articles/fork-a-repo/) the repository on Github at https://github.com/kontenbase/mongo-tools.
+3. [Fork](https://help.github.com/articles/fork-a-repo/) the repository on Github at https://github.com/kontenbase/kb-mongotools.
 4. Sign the [MongoDB Contributor Agreement](https://www.mongodb.com/legal/contributor-agreement). This will allow us to review and accept contributions.
 5. For more details see http://www.mongodb.org/about/contributors/.
 6. Submit a [pull request](https://help.github.com/articles/creating-a-pull-request/) against the project for review.

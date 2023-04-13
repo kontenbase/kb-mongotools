@@ -13,8 +13,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/kontenbase/mongo-tools/common/bsonutil"
-	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/bsonutil"
+	"github.com/kontenbase/kb-mongotools/common/db"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

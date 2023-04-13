@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/db"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

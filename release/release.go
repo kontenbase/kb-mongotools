@@ -24,12 +24,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/release/aws"
-	"github.com/kontenbase/mongo-tools/release/download"
-	"github.com/kontenbase/mongo-tools/release/env"
-	"github.com/kontenbase/mongo-tools/release/evergreen"
-	"github.com/kontenbase/mongo-tools/release/platform"
-	"github.com/kontenbase/mongo-tools/release/version"
+	"github.com/kontenbase/kb-mongotools/release/aws"
+	"github.com/kontenbase/kb-mongotools/release/download"
+	"github.com/kontenbase/kb-mongotools/release/env"
+	"github.com/kontenbase/kb-mongotools/release/evergreen"
+	"github.com/kontenbase/kb-mongotools/release/platform"
+	"github.com/kontenbase/kb-mongotools/release/version"
 )
 
 // These are the binaries that are part of mongo-tools, relative

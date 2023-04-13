@@ -8,11 +8,11 @@
 package mongoimport
 
 import (
-	"github.com/kontenbase/mongo-tools/common/db"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/options"
-	"github.com/kontenbase/mongo-tools/common/progress"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/progress"
+	"github.com/kontenbase/kb-mongotools/common/util"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"gopkg.in/tomb.v2"

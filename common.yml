@@ -41,7 +41,7 @@ functions:
     command: shell.exec
     type: test
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       script: |
         set -x
         set -v
@@ -55,7 +55,7 @@ functions:
     command: subprocess.exec
     params:
       binary: bash
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       args:
         - "./scripts/run_qa.sh"
       add_expansions_to_env: true
@@ -64,7 +64,7 @@ functions:
     command: subprocess.exec
     params:
       binary: bash
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       args:
         - "./scripts/run_native_cert_ssl.sh"
       add_expansions_to_env: true
@@ -73,7 +73,7 @@ functions:
     command: shell.exec
     type: test
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       script: |
         ${_set_shell_env}
         ${_maybe_enable_devtoolset_7}
@@ -83,7 +83,7 @@ functions:
   "download mongod and shell":
     command: subprocess.exec
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       binary: bash
       args:
         - "./scripts/download_mongod_and_shell.sh"
@@ -98,7 +98,7 @@ functions:
   "setup integration test":
     command: shell.exec
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       # Set up Kerberos stuff: run kinit if necessary, and add KDC to registry
       # on Windows (see https://wiki.mongodb.com/display/DH/Testing+Kerberos)
       script: |
@@ -124,7 +124,7 @@ functions:
   "setup credentials":
     command: shell.exec
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       silent: true
       script: |
         set -x
@@ -144,7 +144,7 @@ functions:
   "start mongod":
     command: shell.exec
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       background: true
       script: |
         set -x
@@ -168,7 +168,7 @@ functions:
   "wait for mongod to be ready":
     command: shell.exec
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       script: |
         set -x
         set -v
@@ -200,7 +200,7 @@ functions:
   "create mongod users":
     command: shell.exec
     params:
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       script: |
         ${_set_shell_env}
         MONGO_ARGS="${mongo_args}"
@@ -213,7 +213,7 @@ functions:
     # build release artifacts
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           ${_set_shell_env}
           go run release/release.go build-archive
@@ -222,7 +222,7 @@ functions:
     # temporary workaround for TOOLS-2606
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           rm -rf ./mongorestore/testdata/longcollectionname/
 
@@ -232,9 +232,9 @@ functions:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
         local_files_include_filter:
-          - src/github.com/kontenbase/mongo-tools/release.*
-          - src/github.com/kontenbase/mongo-tools/*.deb
-          - src/github.com/kontenbase/mongo-tools/*.rpm
+          - src/github.com/kontenbase/kb-mongotools/release.*
+          - src/github.com/kontenbase/kb-mongotools/*.deb
+          - src/github.com/kontenbase/kb-mongotools/*.rpm
         remote_file: mongo-tools/pkgs/${build_id}/
         content_type: application/octet-stream
         bucket: mciuploads
@@ -245,8 +245,8 @@ functions:
     # place so that they can be more easily downloaded by the sign task
     - command: archive.targz_pack
       params:
-        target: src/github.com/kontenbase/mongo-tools/upload.tgz
-        source_dir: src/github.com/kontenbase/mongo-tools
+        target: src/github.com/kontenbase/kb-mongotools/upload.tgz
+        source_dir: src/github.com/kontenbase/kb-mongotools
         include:
           - "./release.*"
           - "*.deb"
@@ -255,7 +255,7 @@ functions:
       params:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
-        local_file: src/github.com/kontenbase/mongo-tools/upload.tgz
+        local_file: src/github.com/kontenbase/kb-mongotools/upload.tgz
         remote_file: mongo-tools/task/dist/${build_id}/all-release-artifacts.tgz
         content_type: application/x-gzip
         bucket: mciuploads
@@ -268,14 +268,14 @@ functions:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
         remote_file: mongo-tools/task/dist/${build_id}/all-release-artifacts.tgz
-        extract_to: src/github.com/kontenbase/mongo-tools/
+        extract_to: src/github.com/kontenbase/kb-mongotools/
         bucket: mciuploads
 
   "sign msi installer":
     - command: shell.exec
       type: system
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools/
+        working_dir: src/github.com/kontenbase/kb-mongotools/
         silent: true
         script: |
           echo "${signing_auth_token}" > ./signing_auth_token
@@ -284,7 +284,7 @@ functions:
       # We overwrite the existing release.msi with a signed version via --package-file-suffix ""
       type: system
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools/
+        working_dir: src/github.com/kontenbase/kb-mongotools/
         script: |
           if [ "${mongo_os}" = "osx" ]; then
               exit 0
@@ -303,7 +303,7 @@ functions:
     command: subprocess.exec
     params:
       binary: bash
-      working_dir: src/github.com/kontenbase/mongo-tools
+      working_dir: src/github.com/kontenbase/kb-mongotools
       args:
         - "./scripts/sign_macos_zip.sh"
       add_expansions_to_env: true
@@ -312,7 +312,7 @@ functions:
     - command: shell.exec
       type: system
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools/
+        working_dir: src/github.com/kontenbase/kb-mongotools/
         silent: true
         script: |
           if [ "${mongo_os}" = "osx" ]; then
@@ -322,7 +322,7 @@ functions:
     - command: shell.exec
       type: system
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools/
+        working_dir: src/github.com/kontenbase/kb-mongotools/
         silent: false
         script: |
           if [ "${mongo_os}" = "osx" ]; then
@@ -345,14 +345,14 @@ functions:
     - command: shell.exec
       type: system
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools/
+        working_dir: src/github.com/kontenbase/kb-mongotools/
         silent: true
         script: |
           echo "${signing_auth_token}" > ./signing_auth_token
     - command: shell.exec
       type: system
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools/
+        working_dir: src/github.com/kontenbase/kb-mongotools/
         script: |
           if [ "${mongo_os}" = "osx" ]; then
               exit 0
@@ -370,7 +370,7 @@ functions:
     # temporary workaround for TOOLS-2606
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           rm -rf ./mongorestore/testdata/longcollectionname/
     - command: s3.put
@@ -378,9 +378,9 @@ functions:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
         local_files_include_filter:
-          - src/github.com/kontenbase/mongo-tools/release.*
-          - src/github.com/kontenbase/mongo-tools/*.deb
-          - src/github.com/kontenbase/mongo-tools/*.rpm
+          - src/github.com/kontenbase/kb-mongotools/release.*
+          - src/github.com/kontenbase/kb-mongotools/*.deb
+          - src/github.com/kontenbase/kb-mongotools/*.rpm
         remote_file: mongo-tools/task/sign/${build_id}/
         bucket: mciuploads
         permissions: public-read
@@ -389,7 +389,7 @@ functions:
   "upload release packages to s3":
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           ${_set_shell_env}
           go run release/release.go upload-release
@@ -397,7 +397,7 @@ functions:
   "upload release json feed to s3":
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           ${_set_shell_env}
           go run release/release.go upload-json
@@ -405,7 +405,7 @@ functions:
       params:
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
-        local_file: src/github.com/kontenbase/mongo-tools/release.json
+        local_file: src/github.com/kontenbase/kb-mongotools/release.json
         remote_file: mongo-tools/release/${build_id}/
         optional: true
         content_type: application/json
@@ -415,7 +415,7 @@ functions:
   "generate full JSON feed":
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           ${_set_shell_env}
           go run release/release.go generate-full-json
@@ -423,13 +423,13 @@ functions:
   "upload release packages to linux repos":
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           curl -L -O http://boxes.10gen.com/build/curator/curator-dist-rhel70-latest.tar.gz
           tar -zxvf curator-dist-rhel70-latest.tar.gz
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           ${_set_shell_env}
           go run release/release.go linux-release
@@ -444,13 +444,13 @@ functions:
           mkdir -p src/github.com/mongodb
     - command: git.get_project
       params:
-        directory: src/github.com/kontenbase/mongo-tools
+        directory: src/github.com/kontenbase/kb-mongotools
     - command: git.apply_patch
       params:
-        directory: src/github.com/kontenbase/mongo-tools
+        directory: src/github.com/kontenbase/kb-mongotools
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           set -x
           set -v
@@ -461,7 +461,7 @@ functions:
     - command: shell.exec
       type: test
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           set -x
           set -v
@@ -471,7 +471,7 @@ functions:
   "create repl_set":
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         background: true
         script: |
           set -x
@@ -492,7 +492,7 @@ functions:
 
     - command: shell.exec
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           set -x
           set -v
@@ -508,7 +508,7 @@ functions:
       type: test
       params:
         silent: true
-        working_dir: src/github.com/kontenbase/mongo-tools/common/testdata/lib
+        working_dir: src/github.com/kontenbase/kb-mongotools/common/testdata/lib
         script: |
           set -x
           set -v
@@ -527,7 +527,7 @@ functions:
       type: test
       params:
         # silent: true
-        working_dir: src/github.com/kontenbase/mongo-tools/common/testdata/lib
+        working_dir: src/github.com/kontenbase/kb-mongotools/common/testdata/lib
         script: |
           set -x
           set -v
@@ -567,7 +567,7 @@ functions:
       type: test
       params:
         silent: true
-        working_dir: src/github.com/kontenbase/mongo-tools/common/testdata/lib
+        working_dir: src/github.com/kontenbase/kb-mongotools/common/testdata/lib
         script: |
           set -x
           set -v
@@ -596,7 +596,7 @@ functions:
     - command: shell.exec
       type: test
       params:
-        working_dir: src/github.com/kontenbase/mongo-tools
+        working_dir: src/github.com/kontenbase/kb-mongotools
         script: |
           set -e
           set -x
@@ -659,10 +659,10 @@ post:
   # attach.results works for jstests, gotest.parse_files for golang tests
   - command: attach.results
     params:
-      file_location: src/github.com/kontenbase/mongo-tools/report.json
+      file_location: src/github.com/kontenbase/kb-mongotools/report.json
   - command: gotest.parse_files
     params:
-      files: ["src/github.com/kontenbase/mongo-tools/testing_output/*.suite"]
+      files: ["src/github.com/kontenbase/kb-mongotools/testing_output/*.suite"]
   - command: shell.exec
     params:
       silent: true
@@ -1845,7 +1845,7 @@ tasks:
       - command: shell.exec
         type: test
         params:
-          working_dir: src/github.com/kontenbase/mongo-tools
+          working_dir: src/github.com/kontenbase/kb-mongotools
           script: |
             ${_set_shell_env}
             PATH=$PATH:$PWD/bin golangci-lint run --disable-all -E gofmt ./...
@@ -1857,7 +1857,7 @@ tasks:
       - command: shell.exec
         type: test
         params:
-          working_dir: src/github.com/kontenbase/mongo-tools
+          working_dir: src/github.com/kontenbase/kb-mongotools
           script: |
             ${_set_shell_env}
             retVal=$(go run vendor/github.com/3rf/mongo-lint/golint/golint.go mongo* bson*);
@@ -1869,7 +1869,7 @@ tasks:
       - command: shell.exec
         type: test
         params:
-          working_dir: src/github.com/kontenbase/mongo-tools
+          working_dir: src/github.com/kontenbase/kb-mongotools
           script: |
             set -x
             set -v
@@ -2147,7 +2147,7 @@ tasks:
       - command: shell.exec
         type: test
         params:
-          working_dir: src/github.com/kontenbase/mongo-tools
+          working_dir: src/github.com/kontenbase/kb-mongotools
           script: |
             set -x
             set -v

@@ -13,7 +13,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/text"
+	"github.com/kontenbase/kb-mongotools/common/text"
 )
 
 const (

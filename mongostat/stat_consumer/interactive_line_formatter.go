@@ -15,7 +15,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer/line"
 	"github.com/nsf/termbox-go"
 )
 

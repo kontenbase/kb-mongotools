@@ -19,12 +19,12 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/bsontype"
 
-	"github.com/kontenbase/mongo-tools/common/db"
-	"github.com/kontenbase/mongo-tools/common/failpoint"
-	"github.com/kontenbase/mongo-tools/common/json"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/options"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/failpoint"
+	"github.com/kontenbase/kb-mongotools/common/json"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/util"
 )
 
 // BSONDump is a container for the user-specified options and

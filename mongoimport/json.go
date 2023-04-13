@@ -12,9 +12,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/kontenbase/mongo-tools/common/bsonutil"
-	"github.com/kontenbase/mongo-tools/common/json"
-	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/bsonutil"
+	"github.com/kontenbase/kb-mongotools/common/json"
+	"github.com/kontenbase/kb-mongotools/common/log"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

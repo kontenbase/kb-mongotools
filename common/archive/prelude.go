@@ -13,9 +13,9 @@ import (
 	"path/filepath"
 	"sync/atomic"
 
-	"github.com/kontenbase/mongo-tools/common/intents"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/common/intents"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/util"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

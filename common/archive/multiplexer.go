@@ -13,9 +13,9 @@ import (
 	"io"
 	"reflect"
 
-	"github.com/kontenbase/mongo-tools/common/db"
-	"github.com/kontenbase/mongo-tools/common/intents"
-	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/intents"
+	"github.com/kontenbase/kb-mongotools/common/log"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

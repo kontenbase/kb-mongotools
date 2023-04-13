@@ -14,8 +14,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kontenbase/mongo-tools/common/bsonutil"
-	"github.com/kontenbase/mongo-tools/common/json"
+	"github.com/kontenbase/kb-mongotools/common/bsonutil"
+	"github.com/kontenbase/kb-mongotools/common/json"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

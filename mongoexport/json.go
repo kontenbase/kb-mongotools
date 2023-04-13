@@ -10,7 +10,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/kontenbase/mongo-tools/common/json"
+	"github.com/kontenbase/kb-mongotools/common/json"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

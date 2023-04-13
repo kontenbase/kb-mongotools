@@ -12,14 +12,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/password"
-	"github.com/kontenbase/mongo-tools/common/signals"
-	"github.com/kontenbase/mongo-tools/common/util"
-	"github.com/kontenbase/mongo-tools/mongostat"
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer"
-	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
-	"github.com/kontenbase/mongo-tools/mongostat/status"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/password"
+	"github.com/kontenbase/kb-mongotools/common/signals"
+	"github.com/kontenbase/kb-mongotools/common/util"
+	"github.com/kontenbase/kb-mongotools/mongostat"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer"
+	"github.com/kontenbase/kb-mongotools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/kb-mongotools/mongostat/status"
 )
 
 // optionKeyNames interprets the CLI options Columns and AppendColumns into

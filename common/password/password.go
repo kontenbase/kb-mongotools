@@ -13,7 +13,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/log"
 )
 
 // key constants

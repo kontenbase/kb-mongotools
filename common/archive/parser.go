@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/kb-mongotools/common/db"
 )
 
 var errInterrupted = errors.New("archive reading interrupted")

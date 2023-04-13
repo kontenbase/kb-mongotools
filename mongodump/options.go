@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/kontenbase/mongo-tools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/options"
 )
 
 var Usage = `<options> <connection-string>

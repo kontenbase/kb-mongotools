@@ -7,11 +7,11 @@
 package mongorestore
 
 import (
-	"github.com/kontenbase/mongo-tools/common/archive"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/options"
-	"github.com/kontenbase/mongo-tools/common/testtype"
-	"github.com/kontenbase/mongo-tools/common/testutil"
+	"github.com/kontenbase/kb-mongotools/common/archive"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/testutil"
 
 	. "github.com/smartystreets/goconvey/convey"
 

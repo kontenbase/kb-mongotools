@@ -17,7 +17,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	"github.com/kontenbase/mongo-tools/release/download"
+	"github.com/kontenbase/kb-mongotools/release/download"
 )
 
 var awsClient *AWS

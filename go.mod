@@ -1,4 +1,4 @@
-module github.com/kontenbase/mongo-tools
+module github.com/kontenbase/kb-mongotools
 
 go 1.19
 

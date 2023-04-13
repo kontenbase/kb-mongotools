@@ -10,10 +10,10 @@ package main
 import (
 	"os"
 
-	"github.com/kontenbase/mongo-tools/bsondump"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/signals"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/bsondump"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/signals"
+	"github.com/kontenbase/kb-mongotools/common/util"
 )
 
 var (

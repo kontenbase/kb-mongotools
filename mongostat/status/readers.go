@@ -12,8 +12,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/kontenbase/mongo-tools/common/text"
-	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/kb-mongotools/common/text"
+	"github.com/kontenbase/kb-mongotools/common/util"
 )
 
 type ReaderConfig struct {

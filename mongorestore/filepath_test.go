@@ -11,13 +11,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kontenbase/mongo-tools/common/intents"
-	"github.com/kontenbase/mongo-tools/common/log"
-	"github.com/kontenbase/mongo-tools/common/options"
-	commonOpts "github.com/kontenbase/mongo-tools/common/options"
-	"github.com/kontenbase/mongo-tools/common/testtype"
-	"github.com/kontenbase/mongo-tools/common/util"
-	"github.com/kontenbase/mongo-tools/mongorestore/ns"
+	"github.com/kontenbase/kb-mongotools/common/intents"
+	"github.com/kontenbase/kb-mongotools/common/log"
+	"github.com/kontenbase/kb-mongotools/common/options"
+	commonOpts "github.com/kontenbase/kb-mongotools/common/options"
+	"github.com/kontenbase/kb-mongotools/common/testtype"
+	"github.com/kontenbase/kb-mongotools/common/util"
+	"github.com/kontenbase/kb-mongotools/mongorestore/ns"
 	. "github.com/smartystreets/goconvey/convey"
 )
 
