@@ -41,6 +41,7 @@ const (
 	ctDecimal
 	ctString
 	ctID
+	ctJsonID
 )
 
 var (
@@ -59,6 +60,7 @@ var (
 		"int64":       ctInt64,
 		"string":      ctString,
 		"id":          ctID,
+		"jsonId":      ctJsonID,
 	}
 )
 
@@ -197,6 +199,8 @@ func NewFieldParser(t columnType, arg string) (parser FieldParser, err error) {
 		parser = new(FieldDecimalParser)
 	case ctID:
 		parser = new(FieldIDParser)
+	case ctJsonID:
+		parser = new(FieldJsonIDParser)
 	case ctString:
 		parser = new(FieldStringParser)
 	default: // ctAuto
@@ -303,6 +307,39 @@ func (sp *FieldStringParser) Parse(in string) (interface{}, error) {
 type FieldIDParser struct{}
 
 func (sp *FieldIDParser) Parse(in string) (interface{}, error) {
+	if len(in) == 24 {
+		return primitive.ObjectIDFromHex(in)
+	}
+
+	if id, err := strconv.Atoi(in); err == nil {
+		var b primitive.ObjectID
+		binary.LittleEndian.PutUint32(b[0:4], 00000)
+		binary.LittleEndian.PutUint32(b[4:12], uint32(id))
+		return b, nil
+	}
+
+	if len(in) > 24 {
+		return nil, fmt.Errorf("FieldIDParser: id too long")
+	}
+
+	b := hex.EncodeToString([]byte(in))
+
+	var oid primitive.ObjectID
+	copy(oid[:], b)
+
+	return oid, nil
+}
+
+type FieldJsonIDParser struct{}
+
+func (jip *FieldJsonIDParser) Parse(in string) (interface{}, error) {
+	re := regexp.MustCompile(`ObjectId\((.*?)\)`)
+	result := re.FindStringSubmatch(in)
+
+	if len(result) > 1 {
+		in = result[1]
+	}
+
 	if len(in) == 24 {
 		return primitive.ObjectIDFromHex(in)
 	}
