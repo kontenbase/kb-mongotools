@@ -9,8 +9,10 @@ package mongoimport
 import (
 	"encoding/base32"
 	"encoding/base64"
+	"encoding/binary"
 	"encoding/hex"
 	"fmt"
+	"log"
 	"math"
 	"regexp"
 	"strconv"
@@ -38,6 +40,7 @@ const (
 	ctInt64
 	ctDecimal
 	ctString
+	ctID
 )
 
 var (
@@ -55,6 +58,7 @@ var (
 		"int32":       ctInt32,
 		"int64":       ctInt64,
 		"string":      ctString,
+		"id":          ctID,
 	}
 )
 
@@ -154,6 +158,7 @@ var (
 // argument. An error will be raised if arg is not valid for the type's
 // parser.
 func NewFieldParser(t columnType, arg string) (parser FieldParser, err error) {
+	log.Println("new fieldParser", t, arg)
 	arg = escapeReplacer.Replace(arg)
 
 	switch t { // validate argument
@@ -190,6 +195,8 @@ func NewFieldParser(t columnType, arg string) (parser FieldParser, err error) {
 		parser = new(FieldInt64Parser)
 	case ctDecimal:
 		parser = new(FieldDecimalParser)
+	case ctID:
+		parser = new(FieldIDParser)
 	case ctString:
 		parser = new(FieldStringParser)
 	default: // ctAuto
@@ -291,4 +298,30 @@ type FieldStringParser struct{}
 
 func (sp *FieldStringParser) Parse(in string) (interface{}, error) {
 	return in, nil
+}
+
+type FieldIDParser struct{}
+
+func (sp *FieldIDParser) Parse(in string) (interface{}, error) {
+	if len(in) == 24 {
+		return primitive.ObjectIDFromHex(in)
+	}
+
+	if id, err := strconv.Atoi(in); err == nil {
+		var b primitive.ObjectID
+		binary.LittleEndian.PutUint32(b[0:4], 00000)
+		binary.LittleEndian.PutUint32(b[4:12], uint32(id))
+		return b, nil
+	}
+
+	if len(in) > 24 {
+		return nil, fmt.Errorf("FieldIDParser: id too long")
+	}
+
+	b := hex.EncodeToString([]byte(in))
+
+	var oid primitive.ObjectID
+	copy(oid[:], b)
+
+	return oid, nil
 }
