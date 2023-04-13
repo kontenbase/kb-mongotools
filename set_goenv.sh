@@ -60,8 +60,8 @@ set_goenv() {
 
     # Derive GOPATH from current directory, but error if the current directory
     # doesn't look like a GOPATH structure.
-    if expr "$(pwd)" : '.*src/github.com/mongodb/mongo-tools$' > /dev/null; then
-        export GOPATH=$(echo $(pwd) | perl -pe 's{src/github.com/mongodb/mongo-tools}{}')
+    if expr "$(pwd)" : '.*src/github.com/kontenbase/mongo-tools$' > /dev/null; then
+        export GOPATH=$(echo $(pwd) | perl -pe 's{src/github.com/kontenbase/mongo-tools}{}')
         if expr "$UNAME_S" : 'CYGWIN' > /dev/null; then
             export GOPATH=$(cygpath -w "$GOPATH")
         fi

@@ -10,7 +10,7 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/mongodb/mongo-tools/common/db"
+	"github.com/kontenbase/mongo-tools/common/db"
 )
 
 // "empty" prevOpTime is {ts: Timestamp(0, 0), t: NumberLong(-1)} as BSON.

@@ -9,8 +9,8 @@ package testutil
 import (
 	"os"
 
-	"github.com/mongodb/mongo-tools/common/options"
-	"github.com/mongodb/mongo-tools/common/testtype"
+	"github.com/kontenbase/mongo-tools/common/options"
+	"github.com/kontenbase/mongo-tools/common/testtype"
 )
 
 var (

@@ -14,8 +14,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/testtype"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/testtype"
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/stretchr/testify/require"
 	"go.mongodb.org/mongo-driver/x/mongo/driver/connstring"

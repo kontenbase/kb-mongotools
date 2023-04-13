@@ -11,11 +11,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/mongodb/mongo-tools/common/db"
-	"github.com/mongodb/mongo-tools/common/idx"
-	"github.com/mongodb/mongo-tools/common/intents"
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/util"
+	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/mongo-tools/common/idx"
+	"github.com/kontenbase/mongo-tools/common/intents"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/util"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -331,14 +331,14 @@ func createCollectionCommand(intent *intents.Intent, options bson.D) bson.D {
 // This command must also be run on the primary.
 //
 // Example command:
-// {
-//    _mergeAuthzCollections: 1,
-//    db: "foo",
-//    tempUsersCollection: "myTempUsers"
-//    drop: true
-//    writeConcern: {w: "majority"}
-// }
 //
+//	{
+//	   _mergeAuthzCollections: 1,
+//	   db: "foo",
+//	   tempUsersCollection: "myTempUsers"
+//	   drop: true
+//	   writeConcern: {w: "majority"}
+//	}
 func (restore *MongoRestore) RestoreUsersOrRoles(users, roles *intents.Intent) error {
 
 	type loopArg struct {

@@ -14,8 +14,8 @@ import (
 
 	"go.mongodb.org/mongo-driver/x/mongo/driver/connstring"
 
-	"github.com/mongodb/mongo-tools/common/options"
-	"github.com/mongodb/mongo-tools/common/testtype"
+	"github.com/kontenbase/mongo-tools/common/options"
+	"github.com/kontenbase/mongo-tools/common/testtype"
 	. "github.com/smartystreets/goconvey/convey"
 	"go.mongodb.org/mongo-driver/bson"
 )

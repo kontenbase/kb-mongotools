@@ -16,10 +16,10 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/mongodb/mongo-tools/common/db"
-	"github.com/mongodb/mongo-tools/common/intents"
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/util"
+	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/mongo-tools/common/intents"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/util"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

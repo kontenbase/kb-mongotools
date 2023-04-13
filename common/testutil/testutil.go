@@ -16,8 +16,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/mongodb/mongo-tools/common/db"
-	"github.com/mongodb/mongo-tools/common/options"
+	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/mongo-tools/common/options"
 	"github.com/stretchr/testify/require"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -181,8 +181,8 @@ func MergeOplogStreams(input [][]db.Oplog) []db.Oplog {
 // remove the temp directory. You should always call the cleanup func with
 // `defer` immedatiately after calling this function:
 //
-//    dir, cleanup := testutil.MakeTempDir(t)
-//    defer cleanup()
+//	dir, cleanup := testutil.MakeTempDir(t)
+//	defer cleanup()
 //
 // If the `TOOLS_TESTING_NO_CLEANUP` env var is not empty, then the cleanup
 // function will not delete the directory. This can be useful when

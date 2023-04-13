@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/mongodb/mongo-tools/common/testtype"
-	"github.com/mongodb/mongo-tools/evergreen"
+	"github.com/kontenbase/mongo-tools/common/testtype"
+	"github.com/kontenbase/mongo-tools/evergreen"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

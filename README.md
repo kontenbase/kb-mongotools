@@ -20,7 +20,7 @@ We currently build the tools with Go version 1.15. Other Go versions may work bu
 Using `go get` to directly build the tools will not work. To build them, it's recommended to first clone this repository:
 
 ```
-git clone https://github.com/mongodb/mongo-tools
+git clone https://github.com/kontenbase/mongo-tools
 cd mongo-tools
 ```
 

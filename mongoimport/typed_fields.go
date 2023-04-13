@@ -20,7 +20,7 @@ import (
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
-	"github.com/mongodb/mongo-tools/mongoimport/dateconv"
+	"github.com/kontenbase/mongo-tools/mongoimport/dateconv"
 )
 
 // columnType defines different types for columns that can be parsed distinctly

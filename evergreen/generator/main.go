@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/mongodb/mongo-tools/evergreen"
+	"github.com/kontenbase/mongo-tools/evergreen"
 )
 
 func main() {

@@ -13,13 +13,13 @@ import (
 	"path/filepath"
 	"sync/atomic"
 
-	"github.com/mongodb/mongo-tools/common/intents"
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/util"
+	"github.com/kontenbase/mongo-tools/common/intents"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/util"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-//MetadataFile implements intents.file
+// MetadataFile implements intents.file
 type MetadataFile struct {
 	pos int64 // updated atomically, aligned at the beginning of the struct
 	*bytes.Buffer
@@ -273,11 +273,10 @@ func (pe *PreludeExplorer) Stat() (DirLike, error) {
 // ReadDir is part of the DirLIke interface. ReadDir generates a list of PreludeExplorers
 // whose "locations" are encapsulated by the current pes "location".
 //
-//  "dump/oplog.bson"     => &PreludeExplorer{ database: "", collection: "oplog.bson" }
-//  "dump/test/"          => &PreludeExplorer{ database: "test", collection: "foo.bson" }
-//  "dump/test/foo.bson"  => &PreludeExplorer{ database: "test", collection: "" }
-//  "dump/test/foo.json"  => &PreludeExplorer{ database: "test", collection: "foo", isMetadata: true }
-//
+//	"dump/oplog.bson"     => &PreludeExplorer{ database: "", collection: "oplog.bson" }
+//	"dump/test/"          => &PreludeExplorer{ database: "test", collection: "foo.bson" }
+//	"dump/test/foo.bson"  => &PreludeExplorer{ database: "test", collection: "" }
+//	"dump/test/foo.json"  => &PreludeExplorer{ database: "test", collection: "foo", isMetadata: true }
 func (pe *PreludeExplorer) ReadDir() ([]DirLike, error) {
 	if !pe.IsDir() {
 		return nil, fmt.Errorf("not a directory")

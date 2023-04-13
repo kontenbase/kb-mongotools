@@ -9,8 +9,8 @@ package bsonutil
 import (
 	"testing"
 
-	"github.com/mongodb/mongo-tools/common/json"
-	"github.com/mongodb/mongo-tools/common/testtype"
+	"github.com/kontenbase/mongo-tools/common/json"
+	"github.com/kontenbase/mongo-tools/common/testtype"
 	. "github.com/smartystreets/goconvey/convey"
 )
 

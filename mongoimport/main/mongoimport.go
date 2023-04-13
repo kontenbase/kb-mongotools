@@ -11,10 +11,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/signals"
-	"github.com/mongodb/mongo-tools/common/util"
-	"github.com/mongodb/mongo-tools/mongoimport"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/signals"
+	"github.com/kontenbase/mongo-tools/common/util"
+	"github.com/kontenbase/mongo-tools/mongoimport"
 )
 
 var (
@@ -66,6 +66,9 @@ func main() {
 			log.Logvf(log.Always, "done")
 		}
 	}
+
+	fmt.Println(err)
+
 	if err != nil {
 		os.Exit(util.ExitFailure)
 	}

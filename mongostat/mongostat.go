@@ -14,12 +14,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mongodb/mongo-tools/common/db"
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/options"
-	"github.com/mongodb/mongo-tools/mongostat/stat_consumer"
-	"github.com/mongodb/mongo-tools/mongostat/stat_consumer/line"
-	"github.com/mongodb/mongo-tools/mongostat/status"
+	"github.com/kontenbase/mongo-tools/common/db"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/options"
+	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer"
+	"github.com/kontenbase/mongo-tools/mongostat/stat_consumer/line"
+	"github.com/kontenbase/mongo-tools/mongostat/status"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

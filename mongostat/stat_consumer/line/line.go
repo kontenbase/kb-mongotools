@@ -7,7 +7,7 @@
 package line
 
 import (
-	"github.com/mongodb/mongo-tools/mongostat/status"
+	"github.com/kontenbase/mongo-tools/mongostat/status"
 )
 
 // StatLine is a wrapper for all metrics reported by mongostat for monitored hosts

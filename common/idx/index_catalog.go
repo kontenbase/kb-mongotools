@@ -5,9 +5,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/mongodb/mongo-tools/common/bsonutil"
-	"github.com/mongodb/mongo-tools/common/log"
-	"github.com/mongodb/mongo-tools/common/options"
+	"github.com/kontenbase/mongo-tools/common/bsonutil"
+	"github.com/kontenbase/mongo-tools/common/log"
+	"github.com/kontenbase/mongo-tools/common/options"
 	"github.com/pkg/errors"
 	"go.mongodb.org/mongo-driver/bson"
 )
@@ -81,14 +81,15 @@ func (i *IndexCatalog) addIndex(database, collection, indexName string, index *I
 }
 
 // AddIndex stores the given index into the index catalog. An example index:
-// {
-// 	"v": 2,
-// 	"key": {
-// 		"lastModifiedDate": 1
-// 	},
-// 	"name": "lastModifiedDate_1",
-// 	"ns": "test.eventlog"
-// }
+//
+//	{
+//		"v": 2,
+//		"key": {
+//			"lastModifiedDate": 1
+//		},
+//		"name": "lastModifiedDate_1",
+//		"ns": "test.eventlog"
+//	}
 func (i *IndexCatalog) AddIndex(database, collection string, index *IndexDocument) {
 	indexName, ok := index.Options["name"].(string)
 	if !ok {
@@ -357,15 +358,18 @@ func (i *IndexCatalog) collMod(database, collection string, indexModValue interf
 
 // CollMod, updates the corresponding TTL index if the given collModCmd
 // updates the "expireAfterSeconds" or "hiddne" fields. For example,
-// {
-//  "collMod": "sessions",
-//  "index": {"keyPattern": {"lastAccess": 1}, "expireAfterSeconds": 3600}}
-// }
+//
+//	{
+//	 "collMod": "sessions",
+//	 "index": {"keyPattern": {"lastAccess": 1}, "expireAfterSeconds": 3600}}
+//	}
+//
 // or,
-// {
-//  "collMod": "sessions",
-//  "index": {"name": "lastAccess_1", "expireAfterSeconds": 3600}}
-// }
+//
+//	{
+//	 "collMod": "sessions",
+//	 "index": {"name": "lastAccess_1", "expireAfterSeconds": 3600}}
+//	}
 func (i *IndexCatalog) CollMod(database, collection string, indexModValue interface{}) error {
 	err := i.collMod(database, collection, indexModValue)
 	if err != nil {

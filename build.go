@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/craiggwilson/goke/task"
-	"github.com/mongodb/mongo-tools/buildscript"
+	"github.com/kontenbase/mongo-tools/buildscript"
 )
 
 var taskRegistry = task.NewRegistry(task.WithAutoNamespaces(true))

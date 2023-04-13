@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/mongodb/mongo-tools/release/env"
+	"github.com/kontenbase/mongo-tools/release/env"
 )
 
 type OS string
